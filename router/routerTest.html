@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+<!--        <ul>-->
+<!--            <li> <a href="#/list">list</a></li>-->
+<!--            <li> <a href="#/detail">detail</a></li>-->
+<!--        </ul>-->
+
+
+    </div>
+<script>
+    let routerTest = {
+        "#/detail": "./detail.html",
+        "#/list": "./list.html"
+    }
+    window.addEventListener('hashchange', ()=>{
+        let url = routerTest[location.hash]
+        console.log(url)
+    })
+</script>
+</body>
+</html>
