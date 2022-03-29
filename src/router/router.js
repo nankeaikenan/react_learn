@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter, Redirect, Route, Switch, useHistory} from "react-router-dom";
+import {BrowserRouter, Route, Switch, useHistory} from "react-router-dom";
 import Home from '../Home';
 import List from '../List';
 import Error from "../Error";
@@ -9,7 +9,7 @@ const BaseRouter = () => {
     return (
        <BrowserRouter history={useHistory}>
             <Switch>
-              <Route path='/' render={() => <Redirect to="/list" />} component={() =>
+              <Route path='/' component={() =>
                   <MyIndex>
                       <Switch>
                           <Route path="/home/:id" component={Home}/>
