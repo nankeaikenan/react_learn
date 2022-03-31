@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import 'antd/dist/antd.css'
 import { Input, Button, List } from 'antd'
 import store from "./store";
+import {changeInputValueAction, addContentAction} from "./store/actionCreator"
 
 export default class TodoList extends Component {
     constructor(props) {
@@ -13,11 +14,12 @@ export default class TodoList extends Component {
         this.setState(store.getState())
     }
     handChange(e){
-        const action = {
-            type: "changeInputValue",       // type属性是必须要写的，用于校验
-            value: e.target.value
-        };
+        const action = changeInputValueAction(e.target.value)
         store.dispatch(action);
+    }
+    addContent(){
+        const action = addContentAction(this.state.inputVal)
+        store.dispatch(action)
     }
     render() {
         return (
@@ -29,7 +31,7 @@ export default class TodoList extends Component {
                         onChange={this.handChange.bind(this)}
                         style={{ width: '250px', marginRight: "10px" }}
                     />
-                    <Button type="primary">增加</Button>
+                    <Button type="primary" onClick={this.addContent.bind(this)}>增加</Button>
                 </div>
                 <div style={{ margin: '10px', width: '300px' }}>
                     <List bordered dataSource={this.state.list} renderItem={item => (<List.Item>{item}</List.Item>)}/>
