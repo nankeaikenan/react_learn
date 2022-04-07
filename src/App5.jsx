@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 const hocFunc = (Comp, timer) => {
     return class extends Component{
         state = {
-            num: 1
+            num: 2
         }
         addNumFn(){
             setTimeout(()=>{
